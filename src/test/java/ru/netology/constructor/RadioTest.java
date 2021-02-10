@@ -38,7 +38,7 @@ class RadioTest {
 
     @Test
     public void shouldIncreaseVolume() {
-        Radio radio = new Radio(98);
+        Radio radio = new Radio(95);
 
         assertEquals(95, radio.getCurrentVolume());
         radio.plusVolume();
@@ -65,7 +65,8 @@ class RadioTest {
     @Test
     public void shouldReduceVolume() {
         Radio radio = new Radio(5);
-
+        assertEquals(5, radio.getCurrentVolume());
+        radio.minusVolume();
         assertEquals(4, radio.getCurrentVolume());
         radio.minusVolume();
         assertEquals(3, radio.getCurrentVolume());
