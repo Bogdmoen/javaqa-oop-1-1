@@ -30,9 +30,6 @@ public class Radio {
         this.currentChannel = currentChannel;
     }
 
-    public String getName() {
-        return name;
-    }
 
     public int plusVolume() {
         currentVolume++;
