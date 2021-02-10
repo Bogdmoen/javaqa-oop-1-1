@@ -1,5 +1,14 @@
 package ru.netology.constructor;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+
 public class Radio {
 
     private String name = "default radio";
@@ -11,28 +20,6 @@ public class Radio {
     private int currentChannel;
     private boolean on = true;
 
-
-    public Radio(String name,
-                 int minVolume,
-                 int maxVolume,
-                 int currentVolume,
-                 int minChannel,
-                 int maxChannel,
-                 int currentChannel,
-                 boolean on) {
-
-        this.name = name;
-        this.minVolume = minVolume;
-        this.maxVolume = maxVolume;
-        this.currentVolume = currentVolume;
-        this.minChannel = minChannel;
-        this.maxChannel = maxChannel;
-        this.currentChannel = currentChannel;
-        this.on = on;
-    }
-
-    public Radio() {
-    }
 
     public Radio(int currentVolume) {
         this.currentVolume = currentVolume;
@@ -46,67 +33,6 @@ public class Radio {
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume(int currentVolume) {
-        this.currentVolume = currentVolume;
-    }
-
-    public int getMinChannel() {
-        return minChannel;
-    }
-
-    public void setMinChannel(int minChannel) {
-        this.minChannel = minChannel;
-    }
-
-    public int getMaxChannel() {
-        return maxChannel;
-    }
-
-    public void setMaxChannel(int maxChannel) {
-        this.maxChannel = maxChannel;
-    }
-
-    public int getCurrentChannel() {
-        return currentChannel;
-    }
-
-    public void setCurrentChannel(int currentChannel) {
-        this.currentChannel = currentChannel;
-    }
-
-    public boolean isOn() {
-        return on;
-    }
-
-    public void setOn(boolean on) {
-        this.on = on;
-    }
-
 
     public int plusVolume() {
         currentVolume++;
