@@ -1,33 +1,53 @@
-package ru.netology.domain;
+package ru.netology.constructor;
 
 public class Radio {
 
-    private String name;
+    private String name = "default radio";
     private int minVolume;
-    private int maxVolume;
+    private int maxVolume = 100;
     private int currentVolume;
     private int minChannel;
-    private int maxChannel;
+    private int maxChannel = 9;
     private int currentChannel;
-    private boolean on;
+    private boolean on = true;
+
+
+    public Radio(String name,
+                 int minVolume,
+                 int maxVolume,
+                 int currentVolume,
+                 int minChannel,
+                 int maxChannel,
+                 int currentChannel,
+                 boolean on) {
+
+        this.name = name;
+        this.minVolume = minVolume;
+        this.maxVolume = maxVolume;
+        this.currentVolume = currentVolume;
+        this.minChannel = minChannel;
+        this.maxChannel = maxChannel;
+        this.currentChannel = currentChannel;
+        this.on = on;
+    }
+
+    public Radio() {
+    }
+
+    public Radio(int currentVolume) {
+        this.currentVolume = currentVolume;
+    }
+
+    public Radio(int maxChannel, int currentChannel) {
+        this.maxChannel = maxChannel;
+        this.currentChannel = currentChannel;
+    }
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        if (name.length() > 30) {
-            System.out.println("Ваше имя слишком длинное");
-            return;
-        }
-        if (name.equals("")) {
-            System.out.println("Имя не может быть пустым");
-            return;
-        }
-        if (name.length() < 4) {
-            System.out.println("Имя должно быть больше 4 символов");
-            return;
-        }
         this.name = name;
     }
 
@@ -76,12 +96,6 @@ public class Radio {
     }
 
     public void setCurrentChannel(int currentChannel) {
-        if (currentChannel > maxChannel) {
-            return;
-        }
-        if (currentChannel < minChannel) {
-            return;
-        }
         this.currentChannel = currentChannel;
     }
 
@@ -91,17 +105,6 @@ public class Radio {
 
     public void setOn(boolean on) {
         this.on = on;
-    }
-
-
-    public boolean initialization() {   // метод присваивает тестовые значения параметрам устройства
-
-        setOn(true);
-        setName("default radio");
-        setMaxVolume(10);
-        setMaxChannel(9);
-
-        return on;
     }
 
 
@@ -136,6 +139,34 @@ public class Radio {
 
         }
         return currentChannel;
+    }
+
+    public int goToChannel(int channel) {
+        if (channel > maxChannel) {
+            currentChannel = maxChannel;
+        } else {
+
+            currentChannel = channel;
+        }
+        return currentChannel;
+
+    }
+
+    public String renameUnit(String newName) {
+
+        if (newName.length() > 30) {
+            System.out.println("Ваше имя слишком длинное");
+
+        } else if (newName.equals("")) {
+            System.out.println("Имя не может быть пустым");
+
+        } else if (newName.length() < 4) {
+            System.out.println("Имя должно быть больше 4 символов");
+
+        } else {
+            name = newName;
+        }
+        return name;
     }
 
 }
